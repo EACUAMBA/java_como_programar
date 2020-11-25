@@ -19,7 +19,7 @@ public class ClassAverage{
 		
 		int gradeAverage = total / gradeCounter;
 		
-		System.out.printf("%nThe total of all 10 grades is%d%n", total);
+		System.out.printf("%nThe total of all 10 grades is %d%n", total);
 		System.out.printf("The class average is %d%n", gradeAverage);
 	}
 }
