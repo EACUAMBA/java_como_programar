@@ -1,9 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 
 public class DrawingSquaredSpiral extends JPanel {
-    private final Color corDaLinha = new Color(8, 239, 231);
+    private SecureRandom sr = new SecureRandom();
     public DrawingSquaredSpiral() {
         this.setBackground(Color.BLACK);
     }
@@ -20,7 +21,7 @@ public class DrawingSquaredSpiral extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(corDaLinha);
+
         int comprimentoDoPainel = this.getWidth();
         int alturaDoPainel = this.getHeight();
         int numeroDeLinhasNaHorizontal = comprimentoDoPainel / 20;
@@ -45,6 +46,7 @@ public class DrawingSquaredSpiral extends JPanel {
         }
 
         for (Linha Linha : linhas) {
+            g.setColor(new Color(sr.nextInt(255), sr.nextInt(255), sr.nextInt(255)));
             g.drawLine(Linha.pontoInicialX, Linha.pontoInicialY, Linha.pontoFinalX, Linha.pontoFinalY);
         }
     }
