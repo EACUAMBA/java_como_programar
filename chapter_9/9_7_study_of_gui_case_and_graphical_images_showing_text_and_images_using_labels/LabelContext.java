@@ -7,7 +7,7 @@ public class LabelContext{
     public static void main(String[] args) {
         JLabel northText = new JLabel("This is in north");
 
-        ImageIcon labelIage = new ImageIcon("logo.png");
+        ImageIcon labelIage = new ImageIcon("logo.png"); //This image should be in the same lave as the .class file, because the IDEA don't work well we did it.
         JLabel centerImageText = new JLabel(labelIage);
 
         JLabel southImageText = new JLabel(labelIage);
