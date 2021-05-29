@@ -12,12 +12,14 @@ public class DrawPanel extends JPanel{
     private MyLine[] lines;
     private MyOval[] ovals;
     private MyRectangle[] rects;
+    private String status;
 
     public DrawPanel(){
         this.lines = new MyLine[5 + sr.nextInt(5)];
         this.ovals = new MyOval[1 + sr.nextInt(5)];
         this.rects = new MyRectangle[5 + sr.nextInt(5)];
         this.setBackground(Color.BLACK);
+
 
         for(int i = 0; i<lines.length; i++){
             MyLine line = new MyLine(sr.nextInt(1300), sr.nextInt(600), sr.nextInt(300), sr.nextInt(300), new Color(sr.nextInt(255), sr.nextInt(255), sr.nextInt(255)));
@@ -31,19 +33,22 @@ public class DrawPanel extends JPanel{
             MyOval oval = new MyOval(sr.nextInt(1300), sr.nextInt(600), sr.nextInt(100), sr.nextInt(100), new Color(sr.nextInt(255), sr.nextInt(255), sr.nextInt(255)), (i/2 == 0));
             ovals[i] = oval;
         }
+        this.status = String.format("%s:%d     %s:%d     %s:%d", "Number of lines", this.lines.length, "Number of rects", this.rects.length, "Number of ovals", this.ovals.length) ;
     }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-
+        for (MyRectangle line: this.rects)
+            line.draw(g);
         for (MyLine line: this.lines)
             line.draw(g);
         for (MyOval line: this.ovals)
             line.draw(g);
 
-        for (MyRectangle line: this.rects)
-            line.draw(g);
 
+    }
 
+    public String getStatus(){
+        return this.status;
     }
 }
