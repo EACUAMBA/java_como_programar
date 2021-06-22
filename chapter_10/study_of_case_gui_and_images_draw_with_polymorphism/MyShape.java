@@ -1,24 +1,24 @@
 import java.awt.*;
 
 public abstract class MyShape {
-    private int x1;
-    private int y1;;
+    private int x;
+    private int y;;
     private int width;
     private int height;
     private Color color;
     private boolean isFilled;
 
     public MyShape(){
-        this.x1 = 0;
-        this.y1 = 0;
+        this.x = 0;
+        this.y = 0;
         this.width = 0;
         this.height = 0;
         this.color = Color.BLACK;
 
     }
-    public MyShape(int x1, int y1, int  width, int height, Color color){
-        this.x1 = x1;
-        this.y1 = y1;
+    public MyShape(int x, int y, int  width, int height, Color color){
+        this.x = x;
+        this.y = y;
         this.width = width;
         this.height = height;
         this.color = color;
@@ -26,20 +26,20 @@ public abstract class MyShape {
     }
     public abstract void draw(Graphics graphics);
 
-    public int getX1() {
-        return x1;
+    public int getX() {
+        return x;
     }
 
-    public void setX1(int x1) {
-        this.x1 = x1;
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public int getY1() {
-        return y1;
+    public int getY() {
+        return y;
     }
 
-    public void setY1(int y1) {
-        this.y1 = y1;
+    public void setY(int y) {
+        this.y = y;
     }
 
     public int getWidth() {
