@@ -9,7 +9,6 @@
 
 package chapter_15._15_5_object_serialization;
 
-import java.awt.desktop.OpenFilesEvent;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,7 +34,7 @@ public class ReadSequentialFile {
 			Path path = Paths.get("files").resolve("objectOutput.serialization");
 			objectInputStream = new ObjectInputStream(Files.newInputStream(path));
 		}catch(NoSuchFileException e){
-			System.err.println("Ficheiro não foi encontrado! Terminando...");
+			System.err.println("Ficheiro nï¿½o foi encontrado! Terminando...");
 			System.err.println(e.getMessage());
 			System.exit(1);
 	}catch(IOException e) {
@@ -55,10 +54,10 @@ public class ReadSequentialFile {
 				contador++;
 			}
 		}catch (EOFException eofException) {
-			System.err.println("Fim do ficheiro alcançado.");
+			System.err.println("Fim do ficheiro alcanï¿½ado.");
 			System.err.println(eofException.getLocalizedMessage());
 		}catch (ClassNotFoundException classNotFoundException) {
-			System.err.println("A classe a ser desserializada não corresponde a que pretende fazer o cast. Clase1 classe = (Classe1)input(); - retorn classe3");
+			System.err.println("A classe a ser desserializada nï¿½o corresponde a que pretende fazer o cast. Clase1 classe = (Classe1)input(); - retorn classe3");
 			System.err.println(classNotFoundException.getMessage());
 		}catch (IOException ioException) {
 			System.err.println(ioException.getLocalizedMessage());
