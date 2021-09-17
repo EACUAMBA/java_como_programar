@@ -50,6 +50,7 @@ public class TextFieldJFrame extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent event){
+
             String info = "";
 
             if(event.getSource() == textField1){
