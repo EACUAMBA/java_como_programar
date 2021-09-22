@@ -21,6 +21,7 @@ public class JListJFrame extends JFrame {
         this.stringJList.setVisibleRowCount(5);
         this.stringJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
+
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setViewportView(this.stringJList);
 
