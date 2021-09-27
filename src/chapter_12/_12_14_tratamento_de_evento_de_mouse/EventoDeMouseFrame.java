@@ -49,20 +49,23 @@ public class EventoDeMouseFrame extends JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
             this.statusbar.setText(String.format("Clicaste no ponto  %d w x %d h", e.getX(), e.getY()));
-            this.x.x1 = e.getX();
-            this.x.y1 = e.getY();
+
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
             this.statusbar.setText(String.format("Pressionanste no ponto  %d w x %d h", e.getX(), e.getY()));
+            this.x.x1 = e.getX();
+            this.x.y1 = e.getY();
+            this.x.x2 = e.getX() - this.x.x1;
+            this.x.y2 = e.getY() - this.x.y1;
+            this.x.updateUI();
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
             this.statusbar.setText(String.format("Paraste de pressionar no ponto  %d w x %d h", e.getX(), e.getY()));
-            this.x.x2 = e.getX();
-            this.x.y2 = e.getY();
+
 
         }
 
@@ -79,7 +82,9 @@ public class EventoDeMouseFrame extends JFrame {
         @Override
         public void mouseDragged(MouseEvent e) {
             this.statusbar.setText(String.format("Pressionaste o mouse e moves pressionado, estas no ponto  %d w x %d h", e.getX(), e.getY()));
-
+            this.x.x2 = e.getX() - this.x.x1;
+            this.x.y2 = e.getY() - this.x.y1;
+            this.x.updateUI();
         }
 
         @Override
@@ -93,9 +98,12 @@ public class EventoDeMouseFrame extends JFrame {
 class DrawArea extends JPanel{
     public int x1, y1, x2, y2;
     @Override
-    public void paintComponents(Graphics g) {
-        super.paintComponents(g);
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         g.setColor(new Color(237, 253, 246));
-        g.drawRect(x1, y1, x2, y2);
+
+        g.fillRect(x1, y1, x2, y2);
+        g.setColor(new Color(10, 100, 100));
+        g.drawOval(x1, y1, x2, y2);
     }
 }
