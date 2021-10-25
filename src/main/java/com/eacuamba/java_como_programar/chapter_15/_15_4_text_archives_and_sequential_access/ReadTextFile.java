@@ -1,6 +1,11 @@
 package com.eacuamba.java_como_programar.chapter_15._15_4_text_archives_and_sequential_access;
 
+import sun.misc.Resource;
+
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.NumberFormat;
@@ -12,14 +17,14 @@ import java.util.Scanner;
 public class ReadTextFile {
 	private static Scanner scanner;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws URISyntaxException {
 		openFile();
 		readFile();
 		closeFile();
 	}
 	
-	public static void openFile() {
-		Path path = Paths.get("files").resolve("clients_formatter.txt");
+	public static void openFile() throws URISyntaxException {
+		Path path = Paths.get(Class.class.getResource("/files").toURI()).resolve("clients_formatter.txt").normalize();
 		try {
 		scanner = new Scanner(path);
 		}catch(IOException ioException) {
