@@ -1,4 +1,4 @@
-package com.eacuamba.dev.chapter_14._14_classe_string._4_localizando_caracteres_e_substrings_em_strings;
+package com.eacuamba.dev.chapter_14._14_3_classe_string._4_localizando_caracteres_e_substrings_em_strings;
 
 public class StringIndexMethods {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.eacuamba.dev.chapter_14._14_classe_string._8_metodo_string_valueof;
+package com.eacuamba.dev.chapter_14._14_3_classe_string._8_metodo_string_valueof;
 
 public class StringValueOf {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.eacuamba.dev.chapter_14._14_classe_string._3_construtores_string._3_2_metodos_string_length_charat_getchars;
+package com.eacuamba.dev.chapter_14._14_3_classe_string._3_construtores_string._3_2_metodos_string_length_charat_getchars;
 
 public class StringMiscellaneous {
     public static void main(String[] args) {

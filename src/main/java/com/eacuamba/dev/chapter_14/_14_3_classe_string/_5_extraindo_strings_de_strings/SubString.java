@@ -1,4 +1,4 @@
-package com.eacuamba.dev.chapter_14._14_classe_string._5_extraindo_strings_de_strings;
+package com.eacuamba.dev.chapter_14._14_3_classe_string._5_extraindo_strings_de_strings;
 
 public class SubString {
     public static void main(String[] args) {

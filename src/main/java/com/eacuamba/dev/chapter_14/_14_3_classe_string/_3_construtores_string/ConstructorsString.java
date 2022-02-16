@@ -1,4 +1,4 @@
-package com.eacuamba.dev.chapter_14._14_classe_string._3_construtores_string;
+package com.eacuamba.dev.chapter_14._14_3_classe_string._3_construtores_string;
 
 public class ConstructorsString {
     public static void main(String[] args) {

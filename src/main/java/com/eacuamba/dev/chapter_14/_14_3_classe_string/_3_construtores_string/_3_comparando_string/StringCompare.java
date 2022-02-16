@@ -1,4 +1,4 @@
-package com.eacuamba.dev.chapter_14._14_classe_string._3_construtores_string._3_comparando_string;
+package com.eacuamba.dev.chapter_14._14_3_classe_string._3_construtores_string._3_comparando_string;
 
 public class StringCompare {
     public static void main(String[] args) {

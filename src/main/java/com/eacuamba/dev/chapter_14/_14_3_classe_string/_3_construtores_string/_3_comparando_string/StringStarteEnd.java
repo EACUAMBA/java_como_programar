@@ -1,4 +1,4 @@
-package com.eacuamba.dev.chapter_14._14_classe_string._3_construtores_string._3_comparando_string;
+package com.eacuamba.dev.chapter_14._14_3_classe_string._3_construtores_string._3_comparando_string;
 
 public class StringStarteEnd {
     private static final String[] WORDS = {"starts", "starting", "started", "end", "ended", "ending"};

@@ -1,4 +1,4 @@
-package com.eacuamba.dev.chapter_14._14_classe_string._7_metodos_string_diversos;
+package com.eacuamba.dev.chapter_14._14_3_classe_string._7_metodos_string_diversos;
 
 public class StringMiscellaneous2 {
     public static void main(String[] args) {
