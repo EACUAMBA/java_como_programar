@@ -1,5 +1,5 @@
 #  Java: Como programar da dietel, Edição 10
-Estes são os meus apontamentos e exercicios feitos tirados do livro escrito no titulo do README.md.
+Estes são os meus apontamentos e exercicios feitos.
 Este é um excelente livro para quem quer se especializar em Java.
  
 ###### Se quiser comprar o livro clique na imagem.
