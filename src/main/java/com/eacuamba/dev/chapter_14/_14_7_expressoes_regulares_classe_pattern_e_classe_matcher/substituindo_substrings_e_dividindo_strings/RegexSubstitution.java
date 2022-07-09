@@ -20,6 +20,6 @@ public class RegexSubstitution {
         //substitui palavras por 'palavra'
         firstString = firstString.replaceAll("\\w+", "word");
 
-        System.out.print();
+        System.out.println();
     }
 }
