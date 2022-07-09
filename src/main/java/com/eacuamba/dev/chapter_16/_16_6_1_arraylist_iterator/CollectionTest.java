@@ -1,4 +1,4 @@
-package com.eacuamba.dev.chapter_16._16_1_arraylist_iterator;
+package com.eacuamba.dev.chapter_16._16_6_1_arraylist_iterator;
 
 import java.util.*;
 
