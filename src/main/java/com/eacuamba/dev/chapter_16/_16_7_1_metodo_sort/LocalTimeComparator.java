@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class LocalTimeComparator implements Comparator<LocalTime> {
     //Esta é uma classe comparator, usada ara fazer comparações, como regra ela deve retornar inteiros,
-    // 1 caso o 1st argumento seja menor que o 2nd,
+    // -1 caso o 1st argumento seja menor que o 2nd,
     // 0 se os argumentos forem iguais e
     // 1 se o 1st argumento for maior que o 2nd.
     public int compare(LocalTime localTime1, LocalTime localTime2) {
