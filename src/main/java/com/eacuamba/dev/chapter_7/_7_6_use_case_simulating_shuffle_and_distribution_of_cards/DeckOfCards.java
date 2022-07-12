@@ -33,13 +33,14 @@ public class DeckOfCards{
     public void shuffle(){
         currentCard = 0;
 
-        for(int first = 0; first<deck.length; first++){
+        for(int i = 0; i<deck.length; i++){
 
-            int second = secureRandom.nextInt(NUMBER_OF_CARDS);
+            int next = secureRandom.nextInt(NUMBER_OF_CARDS);
 
-            Card temp = deck[first];
-            deck[first] = deck[second];
-            deck[second] = temp;
+            //Aqui estou trocando as posições começando de 0 colocando lá a carta escolhida aleatoriamente e vice versa.
+            Card temp = deck[i];
+            deck[i] = deck[next];
+            deck[next] = temp;
         }
     }
 
