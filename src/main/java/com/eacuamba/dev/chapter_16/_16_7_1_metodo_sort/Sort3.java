@@ -25,7 +25,12 @@ public class Sort3 {
 
 
         Collections.sort(localTimeList, new LocalTimeComparator());
-        System.out.printf("Lista (list) ordenada:%n");
+        System.out.printf("Lista (localTimeList) ordenada:%n");
+        localTimeList.forEach(System.out::println);
+        System.out.println();
+
+        Collections.sort(localTimeList, new LocalTimeReverseComparator());
+        System.out.printf("Lista (localTimeList) ordenada reversa:%n");
         localTimeList.forEach(System.out::println);
         System.out.println();
     }
