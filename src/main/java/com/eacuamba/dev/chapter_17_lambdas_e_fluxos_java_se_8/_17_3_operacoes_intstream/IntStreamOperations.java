@@ -1,6 +1,7 @@
 package com.eacuamba.dev.chapter_17_lambdas_e_fluxos_java_se_8._17_3_operacoes_intstream;
 
 import java.security.SecureRandom;
+import java.util.function.IntPredicate;
 import java.util.stream.IntStream;
 
 public class IntStreamOperations {
@@ -22,9 +23,11 @@ public class IntStreamOperations {
         System.out.printf("Sum via reduce method: %d%n", IntStream.of(values).reduce(0, (x, y) -> x + y));
         System.out.printf("Sum of squares via reduce method: %d%n", IntStream.of(values).reduce(0, (x, y) -> x + y * y));
         System.out.printf("Product via reduce method: %d%n", IntStream.of(values).reduce(1, (x, y) -> x * y));
-        System.out.printf("Even values displayed in sorted order: ");
+        System.out.print("Even values displayed in sorted order: ");
+        IntPredicate even = (value)->  value % 2 == 0;
+        IntPredicate greaterThan5 = even.and(value -> value > 5);
         IntStream.of(values)
-                .filter(value -> value % 2 == 0)
+                .filter(even)
                 .sorted()
                 .forEach((value)-> System.out.printf("%d ", value));
         System.out.println();
