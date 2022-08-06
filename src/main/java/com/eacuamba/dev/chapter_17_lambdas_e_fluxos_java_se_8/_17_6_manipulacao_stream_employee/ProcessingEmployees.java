@@ -44,9 +44,10 @@ public class ProcessingEmployees {
                 .orElseThrow(()-> new RuntimeException("Colaborador não encontrado!")));
 
         //Comparing
-        Function<Employee, String> byFirstName = Employee::getFirstName;
+        Function<Employee, String> byFirstName = Employee::getFirstName;//Recebe um objecto employee e retorna uma String.
         Function<Employee, String> byLastName = Employee::getLastName;
 
+        //Recebe uma function que sabe estrair e cria um comparator com isso.
         Comparator<Employee> employeeComparator = Comparator.comparing(byLastName).thenComparing(byFirstName);
 
         System.out.printf("%nColaboradores em ordem crescente dos apelidos depois o p/ nome:%n");
