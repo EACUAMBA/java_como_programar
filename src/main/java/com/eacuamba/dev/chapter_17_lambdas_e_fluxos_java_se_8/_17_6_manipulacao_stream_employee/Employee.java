@@ -2,6 +2,8 @@ package com.eacuamba.dev.chapter_17_lambdas_e_fluxos_java_se_8._17_6_manipulacao
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Employee {
     private String firstName;
@@ -54,6 +56,6 @@ public class Employee {
 
     @Override
     public String toString(){
-        return String.format("%-8s %-8s %8.2f   %s", this.getFirstName(), this.getLastName(), this.getSalary(), this.getDepartment());
+        return String.format("%-8s %-8s %8s   %s", this.getFirstName(), this.getLastName(), NumberFormat.getCurrencyInstance(new Locale("pt", "MZ")).format(this.getSalary()), this.getDepartment());
     }
 }

@@ -6,6 +6,6 @@ import java.math.RoundingMode;
 public class Utils {
     private Utils(){}
     public static MathContext getMC(){
-        return new MathContext(2, RoundingMode.CEILING);
+        return new MathContext(2, RoundingMode.HALF_UP);
     }
 }
