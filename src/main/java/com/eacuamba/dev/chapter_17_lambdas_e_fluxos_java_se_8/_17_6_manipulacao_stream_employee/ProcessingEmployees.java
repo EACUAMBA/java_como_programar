@@ -12,9 +12,9 @@ public class ProcessingEmployees {
     private static Employee[] employees;
     static {
         employees = new Employee[]{
-                new Employee("Andre", "Galorte", BigDecimal.valueOf(1000), "Finanças"),
+                new Employee("Andre", "Junina", BigDecimal.valueOf(1000), "Finanças"),
                 new Employee("Iury", "Bordon", BigDecimal.valueOf(4000), "Comercio"),
-                new Employee("Boavida", "Norton", BigDecimal.valueOf(2000.50), "Finanças"),
+                new Employee("Boavida", "Junina", BigDecimal.valueOf(2000.50), "Finanças"),
                 new Employee("Klopes", "Ultron", BigDecimal.valueOf(3000.50), "CEO"),
                 new Employee("Orpew", "Urpin", BigDecimal.valueOf(5000), "Comercio"),
                 new Employee("Ana", "Junina", BigDecimal.valueOf(6000.40), "Suporte"),
@@ -59,6 +59,26 @@ public class ProcessingEmployees {
         employeeList.stream()
                 .sorted(employeeComparator.reversed())
                 .forEach(System.out::println);
+
+        //Processing last names
+        System.out.printf("%nApelidos únicos:%n");
+        employeeList.stream()
+                .map(new Function<Employee, String>() {
+                    @Override
+                    public String apply(Employee employee) {
+                        return employee.getLastName();
+                    }
+                })
+                .distinct()
+                .forEach(System.out::println);
+
+        System.out.printf("%nApelidos únicos em ordem alfabetica:%n");
+        employeeList.stream()
+                .sorted(employeeComparator)
+                .map(Employee::getLastName)
+                .distinct()
+                .forEach(System.out::println);
+
 
 
     }
