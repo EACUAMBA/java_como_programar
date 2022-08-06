@@ -8,18 +8,20 @@ import java.util.stream.Collectors;
 
 public class ProcessingEmployees {
     private static Employee[] employees;
+
     static {
         employees = new Employee[]{
-                new Employee("Andre", "Junina", BigDecimal.valueOf(1000), "Finanças"),
-                new Employee("Iury", "Bordon", BigDecimal.valueOf(4000), "Comercio"),
-                new Employee("Boavida", "Junina", BigDecimal.valueOf(2000.50), "Finanças"),
-                new Employee("Klopes", "Ultron", BigDecimal.valueOf(3000.50), "CEO"),
-                new Employee("Orpew", "Urpin", BigDecimal.valueOf(5000), "Comercio"),
-                new Employee("Ana", "Junina", BigDecimal.valueOf(6000.40), "Suporte"),
+                new Employee("Andre", "Junina", BigDecimal.valueOf(1040), "Finanças"),
+                new Employee("Iury", "Bordon", BigDecimal.valueOf(4100), "Comercio"),
+                new Employee("Boavida", "Junina", BigDecimal.valueOf(2400.50), "Finanças"),
+                new Employee("Klopes", "Ultron", BigDecimal.valueOf(3300.50), "CEO"),
+                new Employee("Orpew", "Urpin", BigDecimal.valueOf(5800), "Comercio"),
+                new Employee("Ana", "Junina", BigDecimal.valueOf(6004.40), "Suporte"),
                 new Employee("Welsy", "Ertinho", BigDecimal.valueOf(7000), "Finanças"),
                 new Employee("Querty", "Asdof", BigDecimal.valueOf(8999.99), "CTO"),
         };
     }
+
     public static void main(String[] args) {
         List<Employee> employeeList = Arrays.asList(employees);
         Collections.shuffle(employeeList);
@@ -28,7 +30,7 @@ public class ProcessingEmployees {
         employeeList.forEach(System.out::println);
 
         //Filtrando e exibindo
-        Predicate<Employee> employeePredicate = (e-> e.getSalary().doubleValue() >= 4000 && e.getSalary().doubleValue() <= 6999);
+        Predicate<Employee> employeePredicate = (e -> e.getSalary().doubleValue() >= 4000 && e.getSalary().doubleValue() <= 6999);
 
         System.out.printf("%nColaborados que ganham entre 4000 e 6999 meticais:%n");
         employeeList.stream()
@@ -36,10 +38,10 @@ public class ProcessingEmployees {
                 .sorted(Comparator.comparing(Employee::getSalary))
                 .forEach(System.out::println);
 
-        System.out.printf("%nPrimeiro colaborador que recebe entre 4000 e 6999:%n%s%n",  employeeList.stream()
+        System.out.printf("%nPrimeiro colaborador que recebe entre 4000 e 6999:%n%s%n", employeeList.stream()
                 .filter(employeePredicate)
                 .findFirst()
-                .orElseThrow(()-> new RuntimeException("Colaborador não encontrado!")));
+                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado!")));
 
         //Comparing
         Function<Employee, String> byFirstName = Employee::getFirstName;//Recebe um objecto employee e retorna uma String.
@@ -82,7 +84,7 @@ public class ProcessingEmployees {
         Map<String, List<Employee>> employeeDPGroups = employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment));
 
         //Usando um biConsumir recebe um k de key e um v value, com o v podemos realizar mais actividades.
-        employeeDPGroups.forEach((key, value)->{
+        employeeDPGroups.forEach((key, value) -> {
             System.out.println(key);
             value.forEach(System.out::println);
             System.out.println("---");
@@ -96,6 +98,22 @@ public class ProcessingEmployees {
             System.out.println(s);
             System.out.printf("Temos %d colaboradores.%n", aLong);
         });
+
+        //Medias e totais
+        System.out.printf("%nSomatorio dos salarios dos colaboradores usando SUM(): %.2f%n", employeeList.stream()
+                .map(Employee::getSalary)
+                .mapToDouble(BigDecimal::doubleValue)
+                .sum());
+
+        System.out.printf("%nSomatorio dos salarios dos colaboradores usando reduce(): %.2f%n", employeeList.stream()
+                .map(Employee::getSalary)
+                .mapToDouble(BigDecimal::doubleValue)
+                .reduce(0, Double::sum));
+
+        System.out.printf("%nMedia dos salarios dos colaboradores usando average(): %.2f%n", employeeList.stream()
+                .map(Employee::getSalary)
+                .mapToDouble(BigDecimal::doubleValue)
+                .average().orElseThrow(() -> new RuntimeException("Resultado invalido!")));
 
     }
 }
