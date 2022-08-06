@@ -1,12 +1,10 @@
 package com.eacuamba.dev.chapter_17_lambdas_e_fluxos_java_se_8._17_6_manipulacao_stream_employee;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ProcessingEmployees {
     private static Employee[] employees;
@@ -18,8 +16,8 @@ public class ProcessingEmployees {
                 new Employee("Klopes", "Ultron", BigDecimal.valueOf(3000.50), "CEO"),
                 new Employee("Orpew", "Urpin", BigDecimal.valueOf(5000), "Comercio"),
                 new Employee("Ana", "Junina", BigDecimal.valueOf(6000.40), "Suporte"),
-                new Employee("Welsy", "Ertinho", BigDecimal.valueOf(7000), "Presidente"),
-                new Employee("Querty", "Asdof", BigDecimal.valueOf(8999.99), "Accionista"),
+                new Employee("Welsy", "Ertinho", BigDecimal.valueOf(7000), "Finanças"),
+                new Employee("Querty", "Asdof", BigDecimal.valueOf(8999.99), "CTO"),
         };
     }
     public static void main(String[] args) {
@@ -79,7 +77,25 @@ public class ProcessingEmployees {
                 .distinct()
                 .forEach(System.out::println);
 
+        //Grouping data
+        System.out.printf("%nColaboradores por departamento:%n");
+        Map<String, List<Employee>> employeeDPGroups = employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment));
 
+        //Usando um biConsumir recebe um k de key e um v value, com o v podemos realizar mais actividades.
+        employeeDPGroups.forEach((key, value)->{
+            System.out.println(key);
+            value.forEach(System.out::println);
+            System.out.println("---");
+        });
+
+        //Grouping data and counting
+        System.out.printf("%nContando colaboradores pode departamento:%n");
+        Map<String, Long> employeesDPCounting = employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
+        employeesDPCounting.forEach((s, aLong) -> {
+            System.out.println(s);
+            System.out.printf("Temos %d colaboradores.%n", aLong);
+        });
 
     }
 }
