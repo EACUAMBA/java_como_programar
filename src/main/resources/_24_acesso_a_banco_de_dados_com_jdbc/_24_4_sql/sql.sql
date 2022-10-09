@@ -46,6 +46,11 @@ ORDER BY a.`last_name`, a.`first_name`;
 INSERT INTO `author` (`first_name`, `last_name`)
 VALUES ('Sue', 'Red');
 
+-- Utilizando a cláusula UPDATE
+UPDATE `author`
+SET `last_name` = 'Black'
+WHERE `last_name` = 'Red' AND `first_name` = 'Sue';
+
  
 
 
