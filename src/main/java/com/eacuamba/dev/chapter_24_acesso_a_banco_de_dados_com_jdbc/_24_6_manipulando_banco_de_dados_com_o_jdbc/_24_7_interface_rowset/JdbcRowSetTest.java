@@ -1,4 +1,4 @@
-package com.eacuamba.dev.chapter_24_acesso_a_banco_de_dados_com_jdbc._24_6_manipulando_banco_de_dados_com_o_jdbc._25_7_interface_rowset;
+package com.eacuamba.dev.chapter_24_acesso_a_banco_de_dados_com_jdbc._24_6_manipulando_banco_de_dados_com_o_jdbc._24_7_interface_rowset;
 
 
 import javax.sql.rowset.JdbcRowSet;
