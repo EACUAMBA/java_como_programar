@@ -18,7 +18,23 @@ WHERE a.`last_name` LIKE 'D%';
 SELECT a.`author_id`, a.`first_name`, a.`last_name` FROM `author` AS a 
 WHERE a.`last_name` LIKE '_o%';
 
+-- 24_4_3_Cláusula ORDER BY
+-- Ordem crescente
+SELECT a.`author_id`, a.`first_name`, a.`last_name` FROM `author` AS a 
+ORDER BY a.`last_name` ASC;
 
+-- Odem decrescente
+SELECT a.`author_id`, a.`first_name`, a.`last_name` FROM `author` AS a 
+ORDER BY a.`last_name` DESC;
+
+-- Ordem crescente last_name e depois first_name
+SELECT a.`author_id`, a.`first_name`, a.`last_name` FROM `author` AS a 
+ORDER BY a.`last_name`, a.`first_name`;
+
+-- Utilizando WHERE e ORDER BY
+SELECT t.`isbn`, t.`title`, t.`edition_number`, t.`copyright` FROM `title` AS t 
+WHERE t.`title` LIKE '%How to program'
+ORDER BY t.`title`;
 
  
 
