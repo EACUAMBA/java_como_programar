@@ -50,7 +50,12 @@ VALUES ('Sue', 'Red');
 UPDATE `author`
 SET `last_name` = 'Black'
 WHERE `last_name` = 'Red' AND `first_name` = 'Sue';
+-- Podemos utilizar a primary para identificar o registo "WHERE `author_id` = 6"
 
+-- Utilizando a cláusula DELETE
+DELETE FROM `author`
+WHERE `last_name` = 'Black' AND `first_name` = 'Sue';
+-- Podemos utilizar a primary para identificar o registo "WHERE `author_id` = 6"
  
 
 
