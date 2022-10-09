@@ -8,7 +8,7 @@ public class DisplayAuthors {
 
     public static void main(String[] args) {
         final String DATABASE_URL = "jdbc:mysql://localhost:3306/books";
-        final String SELECT_QUERY = "SELECT a.`author_id`, a.`first_name`, a.`last_name` FROM `author` AS a;";
+        final String SELECT_QUERY = "SELECT a.`author_id` AS 'ID', a.`first_name` AS 'First Name', a.`last_name` AS 'Last Name' FROM `author` AS a;";
 
         try (
                 /*
@@ -25,7 +25,7 @@ public class DisplayAuthors {
             System.out.printf("Authors Table of Books Database: %n%n");
 
             for (int i = 1; i <= columnCount; i++)
-                System.out.printf("%-20s\t", resultSetMetaData.getColumnName(i));
+                System.out.printf("%-20s\t", resultSetMetaData.getColumnLabel(i));
             System.out.println();
 
             while (resultSet.next()) {
