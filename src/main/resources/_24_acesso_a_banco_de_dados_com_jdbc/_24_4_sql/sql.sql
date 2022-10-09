@@ -36,6 +36,13 @@ SELECT t.`isbn`, t.`title`, t.`edition_number`, t.`copyright` FROM `title` AS t
 WHERE t.`title` LIKE '%How to program'
 ORDER BY t.`title`;
 
+-- Utilizando INNER JOIN
+SELECT a.`first_name`, a.`last_name`, aisbn.`isbn` FROM `author` AS a
+INNER JOIN `author_isbn` as aisbn
+	ON aisbn.`author_id` = a.`author_id`
+ORDER BY a.`last_name`, a.`first_name`;
+
+
  
 
 
