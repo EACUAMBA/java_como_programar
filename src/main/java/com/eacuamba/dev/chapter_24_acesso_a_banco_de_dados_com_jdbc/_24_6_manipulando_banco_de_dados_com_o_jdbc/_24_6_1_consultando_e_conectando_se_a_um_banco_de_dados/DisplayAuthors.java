@@ -25,12 +25,27 @@ public class DisplayAuthors {
             System.out.printf("Authors Table of Books Database: %n%n");
 
             for (int i = 1; i <= columnCount; i++)
-                System.out.printf("%-10s\t", resultSetMetaData.getColumnName(i));
+                System.out.printf("%-20s\t", resultSetMetaData.getColumnName(i));
             System.out.println();
 
             while (resultSet.next()) {
-                for (int i = 1; i <= columnCount; i++)
-                    System.out.printf("%-10s\t", resultSet.getObject(i));
+                for (int i = 1; i <= columnCount; i++) {
+                    String value = "";
+                    switch (resultSetMetaData.getColumnType(i)) {
+                        case Types.INTEGER: {
+                            value = resultSet.getInt(i) + " - " + resultSetMetaData.getColumnTypeName(i);
+                            break;
+                        }
+                        case Types.VARCHAR: {
+                            value = resultSet.getString(i) + " - " + resultSetMetaData.getColumnTypeName(i);
+                            break;
+                        }
+                        default:{
+                            value = resultSet.getString(i) + " - " + resultSetMetaData.getColumnTypeName(i);
+                        }
+                    }
+                    System.out.printf("%-20s\t", value);
+                }
                 System.out.println();
             }
 
