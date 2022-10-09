@@ -42,6 +42,9 @@ INNER JOIN `author_isbn` as aisbn
 	ON aisbn.`author_id` = a.`author_id`
 ORDER BY a.`last_name`, a.`first_name`;
 
+-- Utilizando a instrução INSERT
+INSERT INTO `author` (`first_name`, `last_name`)
+VALUES ('Sue', 'Red');
 
  
 
