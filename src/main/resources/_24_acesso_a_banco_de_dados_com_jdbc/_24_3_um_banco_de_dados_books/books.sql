@@ -16,7 +16,7 @@ VALUES
 (2, 'Harvey', 'Deitel'),
 (3, 'Abbey', 'Deitel'),
 (4, 'Dan', 'Quirk'),
-(5, 'Michael', ' Morgan');
+(5, 'Michael', 'Morgan');
 
 -- Table: titles
 CREATE TABLE IF NOT EXISTS `title`(
