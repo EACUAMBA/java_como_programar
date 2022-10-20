@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonQueries {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/addressbook";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/address";
     private static final String USER = "root";
     private static final String PASSWORD = "root";
 
@@ -17,9 +17,9 @@ public class PersonQueries {
     public PersonQueries() {
         try {
             this.connection = DriverManager.getConnection(DATABASE_URL, USER, PASSWORD);
-            this.selectAllPeoplePreparedStatement = connection.prepareStatement("SELECT * FROM `people`;");
-            this.selectPeopleByLastNamePreparedStatement = connection.prepareStatement("SELECT * FROM `people` WHERE `last_name` = ?");
-            this.insertNewPersonPreparedStatement = connection.prepareStatement("INSERT INTO `address` (`first_name`, `last_name`, `email`, `phone_number`) VALUES (?, ?, ?, ?);");
+            this.selectAllPeoplePreparedStatement = connection.prepareStatement("SELECT * FROM `person`;");
+            this.selectPeopleByLastNamePreparedStatement = connection.prepareStatement("SELECT * FROM `person` WHERE `last_name` LIKE ?");
+            this.insertNewPersonPreparedStatement = connection.prepareStatement("INSERT INTO `person` (`first_name`, `last_name`, `email`, `phone_number`) VALUES (?, ?, ?, ?);");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             System.exit(1);
@@ -91,14 +91,14 @@ public class PersonQueries {
                             .firstName(resultSet.getString("first_name"))
                             .lastName(resultSet.getString("last_name"))
                             .email(resultSet.getString("email"))
-                            .phoneNumber(resultSet.getString("pone_number"))
+                            .phoneNumber(resultSet.getString("phone_number"))
                             .build()
             );
         }
         return people;
     }
 
-    private void close(){
+    public void close(){
         try{
             this.connection.close();
         } catch (SQLException throwables) {
